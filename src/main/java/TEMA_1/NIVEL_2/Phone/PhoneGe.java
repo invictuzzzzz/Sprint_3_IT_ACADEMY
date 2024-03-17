@@ -1,0 +1,22 @@
+package TEMA_1.NIVEL_2.Phone;
+
+import TEMA_1.NIVEL_2.Interfaces.Iphone;
+
+public class PhoneGe extends Phone implements Iphone {
+
+    private final String PREFIX = "+49 ";
+
+    public PhoneGe(String numberPhone) {
+        super(numberPhone);
+    }
+
+    @Override
+    public void call() {
+        System.out.println("Calling to the phone " + PREFIX + getNumberPhone());
+    }
+
+    @Override
+    public void prefix() {
+        System.out.println(PREFIX);
+    }
+}
