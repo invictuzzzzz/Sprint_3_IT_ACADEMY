@@ -24,6 +24,7 @@ public class ParkingManager {
             System.out.println("The command '" + key + " dont exist.");
         }
     }
+    
 
     public Command getCommand(String key) {
         return commands.get(key);
