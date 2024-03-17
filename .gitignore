@@ -30,4 +30,6 @@ lib/
 # Carpeta y archivos de registros y respaldo
 log/
 backup/
+
+# Archivo específico
 Constants.java
