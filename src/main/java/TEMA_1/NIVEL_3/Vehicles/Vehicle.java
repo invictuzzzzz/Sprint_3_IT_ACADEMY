@@ -8,14 +8,14 @@ public class Vehicle {
     }
 
     public void start(){
-        System.out.println(name + " started.");
+        System.out.println("The " + name + " started.");
     }
 
     public void accelerate() {
-        System.out.println(name + " accelerate.");
+        System.out.println("The " + name + " accelerate.");
     }
 
     public void brake() {
-        System.out.println(name + " stopped.");
+        System.out.println("The " + name + " stopped.");
     }
 }

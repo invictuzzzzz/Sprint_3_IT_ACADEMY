@@ -23,7 +23,7 @@ public class Demo {
         createVehicle("Car");
         createVehicle("Bike");
         createVehicle("Plane");
-        createVehicle("Boat");
+        createVehicle("Ship");
     }
 
     private void createVehicle(String vehicleName) {
@@ -44,7 +44,7 @@ public class Demo {
             System.out.println("1. Car");
             System.out.println("2. Bike");
             System.out.println("3. Plane");
-            System.out.println("4. Boat");
+            System.out.println("4. Ship");
             System.out.println("5. Exit");
 
             int option = scanner.nextInt();
@@ -66,7 +66,7 @@ public class Demo {
                     showCommands("Plane");
                     break;
                 case 4:
-                    showCommands("Boat");
+                    showCommands("Ship");
                     break;
                 default:
                     System.out.println("Opción no válida.");
