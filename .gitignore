@@ -20,10 +20,6 @@ target/
 mvnw
 mvnw.cmd
 
-# Carpetas y archivos generados por Gradle
-build/
-.gradle/
-
 # Carpeta y archivos de dependencias
 lib/
 
@@ -31,5 +27,19 @@ lib/
 log/
 backup/
 
-# Archivo específico
+# Archivos específicos del proyecto
 Constants.java
+
+# Carpeta de distribución de Gradle
+build/
+
+# Archivos de configuración de Gradle
+.gradle/
+
+# Archivos de configuración y scripts de Gradle
+gradle/wrapper/
+gradlew
+gradlew.bat
+
+# Archivos de configuración de Gradle
+settings.gradle.kts
