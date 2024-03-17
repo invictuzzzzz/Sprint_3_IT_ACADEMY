@@ -39,7 +39,10 @@ public class Demo {
 
     public void showMenu() {
 
-        while (true) {
+        int option = 0;
+
+        while (option != 5) {
+
             System.out.println("Choose a vehicle :");
             System.out.println("1. Car");
             System.out.println("2. Bike");
@@ -47,13 +50,8 @@ public class Demo {
             System.out.println("4. Ship");
             System.out.println("5. Exit");
 
-            int option = scanner.nextInt();
+            option = scanner.nextInt();
             scanner.nextLine();
-
-            if (option == 5) {
-                System.out.println("GoodBye!");
-                break;
-            }
 
             switch (option) {
                 case 1:
@@ -68,6 +66,8 @@ public class Demo {
                 case 4:
                     showCommands("Ship");
                     break;
+                case 5:
+                    System.out.println("GoodBye!");
                 default:
                     System.out.println("Opción no válida.");
                     break;
