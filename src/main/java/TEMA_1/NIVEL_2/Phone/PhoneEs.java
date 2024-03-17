@@ -1,23 +1,18 @@
 package TEMA_1.NIVEL_2.Phone;
 
-import TEMA_1.NIVEL_2.Interfaces.Iphone;
 
-public class PhoneEs extends Phone implements Iphone {
+public class PhoneEs implements Phone {
+    String numberPhone;
 
     private final String PREFIX = "+34 ";
 
     public PhoneEs(String numberPhone) {
-        super(numberPhone);
+        this.numberPhone = numberPhone;
     }
 
     @Override
     public void call() {
-        System.out.println("Calling to the phone " + PREFIX + getNumberPhone());
+        System.out.println("Calling to the phone " + PREFIX + this.numberPhone);
 
-    }
-
-    @Override
-    public void prefix() {
-        System.out.println(PREFIX);
     }
 }

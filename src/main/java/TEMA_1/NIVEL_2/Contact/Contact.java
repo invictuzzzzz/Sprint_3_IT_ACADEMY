@@ -1,30 +1,30 @@
 package TEMA_1.NIVEL_2.Contact;
 
 import TEMA_1.NIVEL_2.Address.Address;
-import TEMA_1.NIVEL_2.Interfaces.CreatorContact;
 import TEMA_1.NIVEL_2.Phone.Phone;
 
 public class Contact {
-
+    private String name;
     private Phone phone;
     private Address address;
-    private String name;
 
-    public Contact(CreatorContact creator, String phoneNumber, String street, int number, String city, String postalCode, String name) {
-        phone = creator.createPhone(phoneNumber);
-        address = creator.createAddress(street, number, city, postalCode);
+    public Contact(String name, Phone phone, Address address) {
         this.name = name;
+        this.phone = phone;
+        this.address = address;
+
     }
 
-    @Override
-    public String toString() {
-        return  name + ":\n" +  address.toString();
+    public Phone getPhone() {
+        return phone;
     }
-    public void call(){
-        phone.call();
+
+    public Address getAddress() {
+        return address;
     }
-    public void contact() {
-        address.contact();
+
+    public String getName() {
+        return name;
     }
 }
 

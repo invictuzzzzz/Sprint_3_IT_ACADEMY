@@ -1,21 +1,23 @@
 package TEMA_1.NIVEL_2;
 
+import TEMA_1.NIVEL_2.Address.Address;
 import TEMA_1.NIVEL_2.Contact.*;
-import TEMA_1.NIVEL_2.Interfaces.CreatorContact;
+import TEMA_1.NIVEL_2.Contact.CreatorContact;
+import TEMA_1.NIVEL_2.Phone.Phone;
 
 import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Demo {
     private Scanner scanner;
-    private ArrayList<Contact> contacts;
+    private ArrayList<Contact>  contacts = new ArrayList<>();
 
     public Demo(Scanner scanner) {
         this.scanner = scanner;
-        this.contacts = new ArrayList<>();
     }
 
     public void startMenu() {
+
         int option;
         do {
             printMenu();
@@ -55,8 +57,6 @@ public class Demo {
     }
 
     private Contact createContact() {
-        int option = selectCountryOption();
-        CreatorContact creator = selectContactCreator(option);
         String[] contactInfo = getContactInfo();
         String street = contactInfo[0];
         int number = Integer.parseInt(contactInfo[1]);
@@ -64,7 +64,12 @@ public class Demo {
         String postalCode = contactInfo[3];
         String phoneNumber = contactInfo[4];
         String name = contactInfo[5];
-        return new Contact(creator, phoneNumber, street, number, city, postalCode, name);
+
+        int option = selectCountryOption();
+        CreatorContact creator = selectContactCreator(option);
+        Phone phone = creator.createPhone(phoneNumber);
+        Address address = creator.createAddress(street, number, city, postalCode);
+        return new Contact(name, phone, address);
     }
 
     private CreatorContact selectContactCreator(int option) {
@@ -73,7 +78,7 @@ public class Demo {
 
         switch (option) {
             case 1:
-                creator = new ContactSpain();
+                creator = new CreatorContactSpain();
                 break;
             case 2:
                 creator = new ContactFrance();
@@ -113,11 +118,16 @@ public class Demo {
             System.out.println("Existing contacts:");
             for (int i = 0; i < contacts.size(); i++) {
                 System.out.println("Contact " + (i + 1) + ":");
-                System.out.println(contacts.get(i));
-                contacts.get(i).call();
-                contacts.get(i).contact();
+                Contact contact = contacts.get(i);
 
+                System.out.println(contacts.get(i));
+                System.out.println(contact);
             }
         }
+        //Crea un petit gestor de direccions i números de telèfon internacionals.
+        //
+        //L'aplicació ha de permetre afegir a l'agenda, adreces i números de telèfon internacionals.
+        // Tenint en compte els diferents formats dels diferents països, construeix l'agenda, les adreces
+        // i els telèfons implementant un patró Abstract Factory.
     }
 }

@@ -1,4 +1,4 @@
-package TEMA_1.NIVEL_2.Interfaces;
+package TEMA_1.NIVEL_2.Contact;
 
 import TEMA_1.NIVEL_2.Address.Address;
 import TEMA_1.NIVEL_2.Phone.Phone;

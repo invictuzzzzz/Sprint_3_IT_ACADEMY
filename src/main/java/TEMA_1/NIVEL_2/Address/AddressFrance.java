@@ -1,25 +1,22 @@
 package TEMA_1.NIVEL_2.Address;
 
-import TEMA_1.NIVEL_2.Interfaces.IAddress;
-
-public class AddressFrance extends Address implements IAddress {
-
+public class AddressFrance implements Address {
+    private String street;
+    private int number;
+    private String city;
+    private String postalCode;
     private final String COUNTRY = "France";
 
     public AddressFrance(String street, int number, String city, String postalCode) {
-        super(street, number, city, postalCode);
+        this.street = street;
+        this.number = number;
+        this.city = city;
+        this.postalCode = postalCode;
     }
 
     @Override
-    public String toString() {
-        return "Contacto de la agenda francesa. \n" +
-                "Con una dirección en : \n" +
-                this.getFullAddress() + " país " + COUNTRY;
+    public String getFullAddress() {
+        return "c/ " + this.street + " " + this.number + ", " + this.postalCode + " "
+                + this.city + ", " + COUNTRY;
     }
-
-    @Override
-    public void contact() {
-        System.out.println("Salut, ça va?");
-    }
-
 }

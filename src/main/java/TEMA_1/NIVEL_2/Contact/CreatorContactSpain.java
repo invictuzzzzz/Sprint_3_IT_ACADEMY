@@ -2,11 +2,10 @@ package TEMA_1.NIVEL_2.Contact;
 
 import TEMA_1.NIVEL_2.Address.Address;
 import TEMA_1.NIVEL_2.Address.AddressEs;
-import TEMA_1.NIVEL_2.Interfaces.CreatorContact;
 import TEMA_1.NIVEL_2.Phone.Phone;
 import TEMA_1.NIVEL_2.Phone.PhoneEs;
 
-public class ContactSpain implements CreatorContact {
+public class CreatorContactSpain implements CreatorContact {
 
     @Override
     public Phone createPhone(String number) {
