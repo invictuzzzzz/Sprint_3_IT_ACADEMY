@@ -3,115 +3,95 @@ package TEMA_1.NIVEL_3;
 import TEMA_1.NIVEL_3.Commands.AccelerateCommand;
 import TEMA_1.NIVEL_3.Commands.BrakeCommand;
 import TEMA_1.NIVEL_3.Commands.StartCommand;
-import TEMA_1.NIVEL_3.Interfaces.Command;
-import TEMA_1.NIVEL_3.ParkingManager.ParkingManager;
-import TEMA_1.NIVEL_3.Vehicles.Vehicle;
+import TEMA_1.NIVEL_3.Vehicles.*;
 
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Demo {
     private static Scanner scanner;
-    private static final ParkingManager manager = new ParkingManager(new HashMap<>());
+    private static final Parking parking = new Parking(new HashMap<>());
 
     public Demo(Scanner scanner) {
         this.scanner = scanner;
         addVehicles();
+
+
     }
 
-    private void addVehicles() {
-        createVehicle("Car");
-        createVehicle("Bike");
-        createVehicle("Plane");
-        createVehicle("Ship");
+    public void addVehicles() {
+        Bike bike = new Bike("Bici");
+        Car car = new Car("Coche");
+        Plane plane = new Plane("Avion");
+        Ship ship = new Ship("Barco");
+
+        parking.addVehicle(1, bike);
+        parking.addVehicle(2, car);
+        parking.addVehicle(3, plane);
+        parking.addVehicle(4, ship);
     }
 
-    private void createVehicle(String vehicleName) {
-        Vehicle vehicle = new Vehicle(vehicleName);
-        Command startCommand = new StartCommand(vehicle);
-        Command accelerateCommand = new AccelerateCommand(vehicle);
-        Command brakeCommand = new BrakeCommand(vehicle);
-
-        manager.addCommand("start" + vehicleName, startCommand);
-        manager.addCommand("accelerate" + vehicleName, accelerateCommand);
-        manager.addCommand("brake" + vehicleName, brakeCommand);
-    }
-
-    public void showMenu() {
+    public void start() {
+        System.out.println("Selecciona el vehiculo o pulsa 0 para salir.");
 
         int option = 0;
-
-        while (option != 5) {
-
-            System.out.println("Choose a vehicle :");
-            System.out.println("1. Car");
-            System.out.println("2. Bike");
-            System.out.println("3. Plane");
-            System.out.println("4. Ship");
-            System.out.println("5. Exit");
-
+        do {
+            showVehicles();
             option = scanner.nextInt();
-            scanner.nextLine();
-
             switch (option) {
                 case 1:
-                    showCommands("Car");
+                    showCommands(parking.getVehicle(1));
                     break;
                 case 2:
-                    showCommands("Bike");
+                    showCommands(parking.getVehicle(2));
                     break;
                 case 3:
-                    showCommands("Plane");
+                    showCommands(parking.getVehicle(3));
                     break;
                 case 4:
-                    showCommands("Ship");
+                    showCommands(parking.getVehicle(4));
                     break;
-                case 5:
-                    System.out.println("GoodBye!");
+                case 0:
+                    System.out.println("GoodByeee");
+                    break;
                 default:
-                    System.out.println("Opción no válida.");
-                    break;
+                    System.out.println("Invalid option");
             }
+        } while (option != 0);
+
+    }
+
+    private void showVehicles() {
+
+        System.out.println("Vehículos disponibles:");
+        int size = parking.getSize();
+
+        for (int i = 1; i <= size; i++) {
+            Vehicle vehicle = parking.getVehicle(i);
+            System.out.println(i + ") " + vehicle.getName());
         }
     }
 
-    private void showCommands(String vehicleName) {
+    private Vehicle getVehicle(Integer key) {
+        return parking.getVehicle(key);
+    }
 
-        System.out.println("Commands operative for " + vehicleName + ":");
-        System.out.println("1. Start");
-        System.out.println("2. Accelerate");
-        System.out.println("3. Stop");
-
+    private void showCommands(Vehicle vehicle) {
+        System.out.println("Comandos para " + vehicle.getName() + ":");
+        System.out.println("1. Arrancar");
+        System.out.println("2. Acelerar");
+        System.out.println("3. Detener");
         int option = scanner.nextInt();
         scanner.nextLine();
-
-        String commandKey = "";
-
         switch (option) {
             case 1:
-                commandKey = "start" + vehicleName;
+                parking.execute(new StartCommand(vehicle));
                 break;
             case 2:
-                commandKey = "accelerate" + vehicleName;
+                parking.execute(new AccelerateCommand(vehicle));
                 break;
             case 3:
-                commandKey = "brake" + vehicleName;
-                break;
-            default:
-                System.out.println("Option not valid.");
-                return;
-        }
-
-        Command command = manager.getCommand(commandKey);
-        if (command != null) {
-            manager.executeCommand(commandKey);
-        } else {
-            System.out.println("Not found the command");
+                parking.execute(new BrakeCommand(vehicle));
         }
     }
 }
-
-//Dissenya un pàrquing de 4 vehicles: un cotxe, una bicicleta, un avió i un vaixell.
-//
-//Mostra com funciona el patró Command que implementa els mètodes arrencar,
-// accelerar i frenar per a cada tipus de vehicle.

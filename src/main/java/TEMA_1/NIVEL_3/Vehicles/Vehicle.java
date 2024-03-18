@@ -1,21 +1,11 @@
 package TEMA_1.NIVEL_3.Vehicles;
 
-public class Vehicle {
-    private String name;
+public interface Vehicle {
 
-    public Vehicle(String name) {
-        this.name = name;
-    }
+        String getName();
 
-    public void start(){
-        System.out.println("The " + name + " started.");
-    }
+        void start();
+        void accelerate();
+        void brake();
 
-    public void accelerate() {
-        System.out.println("The " + name + " accelerate.");
-    }
-
-    public void brake() {
-        System.out.println("The " + name + " stopped.");
-    }
 }

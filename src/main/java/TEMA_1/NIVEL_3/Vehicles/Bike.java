@@ -1,9 +1,9 @@
-package TEMA_1.NIVEL3_2.Vehicles;
+package TEMA_1.NIVEL_3.Vehicles;
 
-public class Car implements Vehicle {
+public class Bike implements Vehicle {
     private String name;
 
-    public Car(String name){
+    public Bike(String name){
         this.name = name;
     }
 
@@ -14,17 +14,18 @@ public class Car implements Vehicle {
 
     @Override
     public void start() {
-        System.out.println("Arrancando motor coche");
+        System.out.println("Empezando a pedalear");
     }
 
     @Override
     public void accelerate() {
-        System.out.println("Acelerando motor coche");
+        System.out.println("Pedaleando mas fuerte");
 
     }
 
     @Override
     public void brake() {
-        System.out.println("Frenando coche");
+        System.out.println("Frenando bici");
+
     }
 }
