@@ -4,9 +4,11 @@ import TEMA_2.NIVEL_1.Observable.Observer;
 
 public interface Observable {
 
-    void addObservable(Observer observer);
+    void addObservable(Integer key, Observer observer);
 
-    void deleteObservable(Observer observer);
+
+
+    void deleteObservableByKey(int key);
 
     void showObservables();
 
