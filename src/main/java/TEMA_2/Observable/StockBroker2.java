@@ -5,7 +5,7 @@ import TEMA_2.Observer.Observer;
 import java.util.HashSet;
 import java.util.Set;
 
-public class StockBroker3 implements Observable {
+public class StockBroker2 implements Observable {
     Set<Observer> observerSet = new HashSet<>();
     @Override
     public void addObserver(Observer observer) {
@@ -27,8 +27,6 @@ public class StockBroker3 implements Observable {
 
     @Override
     public void notifyObserverMarketDecline() {
-        for (Observer observer : observerSet) {
-            observer.marketDecline();
-        }
+
     }
 }

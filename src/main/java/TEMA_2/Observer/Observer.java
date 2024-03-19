@@ -1,4 +1,4 @@
-package TEMA_2.Interfaces;
+package TEMA_2.Observer;
 
 public interface Observer {
 

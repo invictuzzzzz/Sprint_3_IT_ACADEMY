@@ -9,4 +9,8 @@ public class Demo {
     public Demo(Scanner scanner) {
 
     }
+    private void printMenu() {
+
+        System.out.println();
+    }
 }

@@ -1,7 +1,5 @@
 package TEMA_2.Observer;
 
-import TEMA_2.Interfaces.Observer;
-
 public class Broker implements Observer {
     @Override
     public void marketRise() {

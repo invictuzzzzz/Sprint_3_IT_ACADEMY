@@ -42,17 +42,17 @@ public class Demo {
     }
 
     private void printMenu() {
-        System.out.println("Select an option:");
-        System.out.println("1. Create a new contact");
-        System.out.println("2. View existing contacts");
-        System.out.println("3. Exit");
+        System.out.println("Select an option:\n" +
+                "1. Create a new contactn.\n" +
+                "2. View existing contacts.\n" +
+                "3. Exit");
     }
 
     private int selectCountryOption() {
-        System.out.println("Select a country:");
-        System.out.println("1. Spain");
-        System.out.println("2. France");
-        System.out.println("3. Germany");
+        System.out.println("Select a country:\n" +
+                "1. Spain.\n" +
+                "2. France.\n" +
+                "3. Germany");
         return scanner.nextInt();
     }
 
