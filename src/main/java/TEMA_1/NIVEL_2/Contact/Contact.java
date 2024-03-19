@@ -23,6 +23,13 @@ public class Contact {
         return address;
     }
 
+    public void call() {
+        phone.call();
+    }
+    public void getFullAddress(){
+        address.getFullAddress();
+    }
+
     public String getName() {
         return name;
     }

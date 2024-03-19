@@ -15,8 +15,8 @@ public class AddressFrance implements Address {
     }
 
     @Override
-    public String getFullAddress() {
-        return "c/ " + this.street + " " + this.number + ", " + this.postalCode + " "
-                + this.city + ", " + COUNTRY;
+    public void getFullAddress() {
+        System.out.println("C/ " + this.street + " " + this.number + ", " + this.postalCode + " "
+                + this.city + ", " + COUNTRY);
     }
 }

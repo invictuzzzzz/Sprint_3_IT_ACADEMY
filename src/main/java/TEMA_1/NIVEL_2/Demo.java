@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Demo {
     private Scanner scanner;
-    private ArrayList<Contact>  contacts = new ArrayList<>();
+    private ArrayList<Contact> contacts = new ArrayList<>();
 
     public Demo(Scanner scanner) {
         this.scanner = scanner;
@@ -57,6 +57,9 @@ public class Demo {
     }
 
     private Contact createContact() {
+
+        int option = selectCountryOption();
+
         String[] contactInfo = getContactInfo();
         String street = contactInfo[0];
         int number = Integer.parseInt(contactInfo[1]);
@@ -65,7 +68,7 @@ public class Demo {
         String phoneNumber = contactInfo[4];
         String name = contactInfo[5];
 
-        int option = selectCountryOption();
+
         CreatorContact creator = selectContactCreator(option);
         Phone phone = creator.createPhone(phoneNumber);
         Address address = creator.createAddress(street, number, city, postalCode);
@@ -120,14 +123,10 @@ public class Demo {
                 System.out.println("Contact " + (i + 1) + ":");
                 Contact contact = contacts.get(i);
 
-                System.out.println(contacts.get(i));
-                System.out.println(contact);
+                System.out.println(contact.getName());
+                contact.getFullAddress();
+                contact.call();
             }
         }
-        //Crea un petit gestor de direccions i números de telèfon internacionals.
-        //
-        //L'aplicació ha de permetre afegir a l'agenda, adreces i números de telèfon internacionals.
-        // Tenint en compte els diferents formats dels diferents països, construeix l'agenda, les adreces
-        // i els telèfons implementant un patró Abstract Factory.
     }
 }
