@@ -1,5 +1,8 @@
 package TEMA_2.NIVEL_2;
 
+import TEMA_2.NIVEL_2.ShoeStore.ShoeStore;
+import TEMA_2.NIVEL_2.ShoeStore.Shoes;
+
 import java.util.Scanner;
 
 public class Demo {
