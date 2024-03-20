@@ -4,7 +4,6 @@ import TEMA_2.NIVEL_2.PayMethods.BankTransfer;
 import TEMA_2.NIVEL_2.PayMethods.CreditCard;
 import TEMA_2.NIVEL_2.PayMethods.PaymentCallback;
 import TEMA_2.NIVEL_2.PayMethods.Paypal;
-import TEMA_2.NIVEL_2.PaymentGateWay;
 import TEMA_2.NIVEL_2.Remote.Remote;
 
 public class ShoeStore {
