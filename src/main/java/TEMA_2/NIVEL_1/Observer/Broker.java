@@ -8,7 +8,7 @@ import java.util.Map;
 public class Broker implements Observable {
 
     private String name;
-    private Map<Integer, Observer> observerMap = new HashMap<>();
+    private Map<String, Observer> observerMap = new HashMap<>();
 
     public Broker(String name) {
         this.name = name;
@@ -19,15 +19,15 @@ public class Broker implements Observable {
     }
 
     @Override
-    public void addObservable(Integer key, Observer observer) {
+    public void addObservable(String key, Observer observer) {
         observerMap.put(key, observer);
     }
 
     @Override
-    public void deleteObservableByKey(int key) {
+    public void deleteObservableByKey(String key) {
         String name = observerMap.get(key).getName();
-        for (Map.Entry<Integer, Observer> entry : observerMap.entrySet()) {
-            if (entry.getKey().equals(key)) {
+        for (Map.Entry<String, Observer> agency : observerMap.entrySet()) {
+            if (agency.getKey().equalsIgnoreCase(key)) {
                 observerMap.remove(key);
                 System.out.println("Agencia '" + name + "' eliminada del servicio.");
                 return;
@@ -38,10 +38,9 @@ public class Broker implements Observable {
 
     @Override
     public void showObservables() {
-        System.out.println("Observadores conectados al broker " + name + " :");
         int i = 1;
-        for (Map.Entry<Integer, Observer> entry : observerMap.entrySet()) {
-            System.out.println(i++ + ") " + entry.getValue().getName());
+        for (Map.Entry<String, Observer> agency : observerMap.entrySet()) {
+            System.out.println(i++ + ") " + agency.getValue().getName());
         }
     }
 

@@ -45,7 +45,7 @@ public class Demo {
                 case 4:
                     showAgencys();
                     System.out.println("Indica el numero de la agencia a eliminar");
-                    int agecy = scanner.nextInt();
+                    String agecy = scanner.nextLine();
                     dropAgency(agecy);
                     break;
                 case 5:
@@ -68,7 +68,7 @@ public class Demo {
         System.out.println("\nBienvenido al sistema de notificación de Bolsa.\n" +
                 "1. Ver todas las agencias.\n" +
                 "2. Ver Agencias Subscritas al servicio.\n" +
-                "3. Añadir Agencias al servicio de subcripción." +
+                "3. Añadir Agencias al servicio de subcripción.\n" +
                 "4. Dar de baja una de las agencias del servicio.\n" +
                 "5. Hacer subir la bolsa!\n" +
                 "6. Hacer bajar la bolsa!.\n" +
@@ -80,16 +80,33 @@ public class Demo {
         stockBrokerList.add(agencyLondon);
         stockBrokerList.add(agencyBerlin);
     }
+
     private void addAgencySub() {
         showTotalAgencys();
-        System.out.println("Que agencia quieres inscribir al servicio?");
-        int option = scanner.nextInt();
-        Observer observer = stockBrokerList.get(option-1);
-        broker.addObservable(option,observer);
+        System.out.println("Que agencia quieres inscribir al servicio de subcripción?");
+        String keyName = scanner.nextLine();
+        for (StockBroker stockBroker : stockBrokerList) {
+            String keytoMap = stockBroker.getName();
+            if (keytoMap.equalsIgnoreCase(keyName)) {
+                broker.addObservable(keytoMap, stockBroker);
+                System.out.println(keyName.toUpperCase() + " inscrita en el servicio.");
+                return;
+            }
+        }
+        System.out.println("No encontrada la agencia " + keyName);
     }
 
-    private void dropAgency(int key) {
-        broker.deleteObservableByKey(key);
+    private void dropAgency(String key) {
+
+        for (StockBroker stockBroker : stockBrokerList) {
+            String keytoMap = stockBroker.getName();
+            if (keytoMap.equalsIgnoreCase(key)) {
+                broker.deleteObservableByKey(keytoMap);
+                return;
+            }
+        }
+        System.out.println("No se ha encontrado la agencia.");
+
     }
 
     private void showTotalAgencys() {
@@ -100,7 +117,7 @@ public class Demo {
     }
 
     private void showAgencys() {
-        System.out.println("Agencias subcritas al notificador del Broker " + broker.getName() + ":");
+        System.out.println("Agencias subcritas al Broker " + broker.getName() + ":");
         broker.showObservables();
 
     }
