@@ -1,9 +1,7 @@
 package TEMA_2.NIVEL_1;
 
-import TEMA_2.NIVEL_1.Observable.Observer;
 import TEMA_2.NIVEL_1.Observable.StockBroker;
 import TEMA_2.NIVEL_1.Observer.Broker;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
