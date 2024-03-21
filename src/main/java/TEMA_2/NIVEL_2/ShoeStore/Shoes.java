@@ -1,4 +1,4 @@
-package TEMA_2.NIVEL_2;
+package TEMA_2.NIVEL_2.ShoeStore;
 
 import java.util.HashMap;
 import java.util.Map;

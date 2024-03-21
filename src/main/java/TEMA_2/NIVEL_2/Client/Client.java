@@ -1,4 +1,4 @@
-package TEMA_2.NIVEL_2;
+package TEMA_2.NIVEL_2.Client;
 
 public class Client {
     private String name;
