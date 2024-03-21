@@ -1,6 +1,5 @@
-package TEMA_3;
+package TEMA_2.NIVEL_3;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
