@@ -3,7 +3,7 @@ package TEMA_1.NIVEL_1;
 import java.util.Scanner;
 
 public class OrderManager {
-    static Scanner scanner;
+    private static Scanner scanner;
     private Undo undo;
 
 
@@ -13,7 +13,7 @@ public class OrderManager {
     }
 
 
-    void start() {
+  public void start() {
         byte option;
         do {
 

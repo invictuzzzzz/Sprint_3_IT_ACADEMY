@@ -1,7 +1,7 @@
 package TEMA_1.NIVEL_2.Phone;
 
 public class PhoneGe implements Phone {
-    String numberPhone;
+    private String numberPhone;
 
     private final String PREFIX = "+63 ";
 

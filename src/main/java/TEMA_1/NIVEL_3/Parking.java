@@ -37,7 +37,7 @@ public class Parking {
         return size;
     }
 
-    void execute(Command command) {
+    public void execute(Command command) {
         command.execute();
     }
 }
